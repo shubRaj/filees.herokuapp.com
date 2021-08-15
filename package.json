@@ -1,0 +1,19 @@
+{
+  "name": "imdbtotorrent",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node appcluster.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.7",
+    "parse-torrent": "^9.1.3",
+    "webtorrent": "^1.0.2"
+  }
+}
