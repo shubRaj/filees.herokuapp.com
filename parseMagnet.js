@@ -3,7 +3,7 @@ const parseTorrent = require("parse-torrent");
 function parseMagnet(magnet) {
     return new Promise((resolve, reject) => {
         let client = new WebTorrent();
-        client.add(magnet, { destroyStoreOnDestroy: true, }, function (torrent) {
+        client.add(magnet, {  maxConns:10,destroyStoreOnDestroy: true, skipVerify: true,}, function (torrent) {
             let files = [];
             let { infoHash: hash } = parseTorrent(magnet);
             torrent.files.forEach(function (file) {
