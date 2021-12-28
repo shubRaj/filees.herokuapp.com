@@ -6,11 +6,13 @@ function parseMagnet(magnet) {
         client.add(magnet, {  maxConns:10,destroyStoreOnDestroy: true, skipVerify: true,}, function (torrent) {
             let files = [];
             let { infoHash: hash } = parseTorrent(magnet);
+            console.log(torrent);
             torrent.files.forEach(function (file) {
                 filename = file.path //+ "~tc/" + file.name; //sharing from temporary cache
                 files.push(filename)
             });
             client.destroy((error) => {
+                torrent.destroy();
                 resolve({ files, hash }) //either case resolve 
             });
         });
